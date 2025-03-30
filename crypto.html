@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crypto Trading Simulator</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Main App Section -->
+        <div class="app-container">
+            <header>
+                <div class="logo">Crypto Trader</div>
+                <div class="user-info">
+                    <span>Demo User</span>
+                </div>
+                <div class="user-display" id="userDisplay"></div>
+                <div class="user-menu" id="userMenu" style="display: none;">
+                    <button id="resetUserBtn" value="Reset User">Reset Account</button>
+                </div>
+            </header>
+
+            <div class="dashboard">
+                <div class="market-container">
+                    <h2 class="section-title">Market</h2>
+                    <div class="coins-grid" id="coinsGrid">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="portfolio-container">
+                    <h2 class="section-title">Portfolio</h2>
+                    <div class="portfolio-value" id="portfolioValue">$0.00</div>
+                    <div class="portfolio-change" id="portfolioChange">
+                        <span>+0.00% (24h)</span>
+                    </div>
+
+                    <div class="portfolio-assets" id="portfolioAssets">
+                        <div class="loading">
+                            <div class="spinner"></div>
+                        </div>
+                    </div>
+
+                    <div class="trade-form">
+                        <h3 class="section-title">Trade</h3>
+                        <div id="selectedCoinDisplay" style="display: none;">
+                            <div class="selected-coin">
+                                <div class="coin-logo">
+                                    <img id="selectedCoinImage" src="" alt="">
+                                </div>
+                                <div class="selected-coin-name" id="selectedCoinName"></div>
+                                <div class="selected-coin-price" id="selectedCoinPrice"></div>
+                            </div>
+                        </div>
+                        <form id="tradeForm">
+                            <div class="form-group">
+                                <label for="tradeAmount">Amount</label>
+                                <input type="number" id="tradeAmount" min="0.0001" step="0.0001" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="tradeType">Action</label>
+                                <select id="tradeType" required>
+                                    <option value="buy">Buy</option>
+                                    <option value="sell">Sell</option>
+                                </select>
+                            </div>
+                            <br>
+                            <div class="form-actions">
+                                <button type="submit" class="btn btn-buy" id="buyBtn">Buy</button>
+                                <button type="submit" class="btn btn-sell" id="sellBtn">Sell</button>
+                            </div>
+                            <div class="error-message" id="tradeError"></div>
+                            <div class="success-message" id="tradeSuccess"></div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+
+            <div class="history-container">
+                <h2 class="section-title">Trade History</h2>
+                <table class="history-table">
+                    <thead>
+                        <tr>
+                            <th>Date</th>
+                            <th>Type</th>
+                            <th>Coin</th>
+                            <th>Amount</th>
+                            <th>Price</th>
+                            <th>Value</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tradeHistory">
+                        <tr>
+                            <td colspan="6" style="text-align: center;">
+                                <div class="loading">
+                                    <div class="spinner"></div>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
